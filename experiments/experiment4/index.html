@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raze Electronics | Premium Store</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .buy-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>RAZE <span style="color: #3498db;">ELECTRONICS</span></h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Cart</a>
+            <a href="#">Support</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Experience Premium Audio</h2>
+            <p>High-quality tech curated for the modern lifestyle.</p>
+            
+            <div style="background-color: #e74c3c; color: white; display: inline-block; padding: 5px 15px; border-radius: 50px; font-weight: bold; animation: pulse 2s infinite;">
+                FLASH SALE: 40% OFF
+            </div>
+        </section>
+
+        <div class="product-grid">
+            <article class="card">
+                <figure>
+                    <img src="https://via.placeholder.com/200" alt="Headphones">
+                    <figcaption><strong>Raze Pro ANC</strong></figcaption>
+                </figure>
+                <p>Noise Cancelling Wireless Headphones</p>
+                <p style="font-size: 1.2em; font-weight: bold; color: #2c3e50;">$199.00</p>
+                <button class="buy-btn">Add to Cart</button>
+            </article>
+
+            <article class="card">
+                <figure>
+                    <img src="https://via.placeholder.com/200" alt="Watch">
+                    <figcaption><strong>Smart Watch V2</strong></figcaption>
+                </figure>
+                <p>Track your health and notifications.</p>
+                <p style="color: #e67e22; font-weight: bold;">$149.00 <del style="color: #95a5a6; font-size: 0.8em;">$200</del></p>
+                <button class="buy-btn">Add to Cart</button>
+            </article>
+        </div>
+
+        <hr>
+
+        <section id="faq">
+            <h3>Shipping Information</h3>
+            <details style="background: #fff; padding: 10px; border-radius: 5px; cursor: pointer;">
+                <summary>Do you offer international shipping?</summary>
+                <p>Yes, we ship to over 50 countries including India, USA, and UK.</p>
+            </details>
+            <br>
+            <details style="background: #fff; padding: 10px; border-radius: 5px; cursor: pointer;">
+                <summary>How can I track my order?</summary>
+                <p>Once shipped, you will receive a tracking ID via email.</p>
+                <label>Shipping Progress:</label>
+                <progress value="75" max="100"></progress>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <address>Raze Electronics HQ, Tech Hub, Bangalore, India</address>
+        <p>&copy; 2026 Rajnish Raze. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

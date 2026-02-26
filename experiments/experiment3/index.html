@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajnish Raze | Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .hero-banner {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border-left: 10px solid #0984e3; /* Blue accent */
+        }
+        .project-card {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><strong>RR</strong> Rajnish Raze</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <h1>Hi, I'm <span style="color: #74b9ff;">Rajnish Raze</span></h1>
+            <p>Computer Science Student & Full Stack Developer</p>
+            <button style="background: #0984e3; color: white; border: none; padding: 12px 30px; font-size: 16px; cursor: pointer; border-radius: 50px; margin-top: 15px;">
+                View My Projects
+            </button>
+        </section>
+
+        <section id="about">
+            <article>
+                <h2>Introduction</h2>
+                <p>Main ek engineering student hoon jo naye naye technologies aur web development me interest rakhta hoon. Coding ke saath mujhe creative designs banana pasand hai.</p>
+                
+                <details>
+                    <summary style="cursor: pointer; color: #0984e3; font-weight: bold;">Meri Education dekhein</summary>
+                    <p>Pursuing B.Tech in CSE (Computer Science & Engineering).</p>
+                </details>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span style="background: #e1f5fe; color: #01579b; padding: 5px 15px; border-radius: 4px;">HTML5</span>
+                <span style="background: #e8f5e9; color: #1b5e20; padding: 5px 15px; border-radius: 4px;">CSS3</span>
+                <span style="background: #fff3e0; color: #e65100; padding: 5px 15px; border-radius: 4px;">JavaScript</span>
+                <span style="background: #f3e5f5; color: #4a148c; padding: 5px 15px; border-radius: 4px;">Python</span>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="projects">
+            <h2>Recent Projects</h2>
+            
+            <article class="project-card">
+                <h3>InternSkill Portal</h3>
+                <p>Ek virtual internship platform jahan skills track kiye ja sakte hain.</p>
+                <progress value="60" max="100"></progress> 60% Completed
+            </article>
+
+            <article class="project-card">
+                <h3>Personal Brand Site</h3>
+                <p>Mera khud ka professional portfolio (Jo aap abhi dekh rahe hain!).</p>
+                <progress value="100" max="100"></progress> Finished
+            </article>
+        </section>
+
+        <aside style="background: #f1f2f6; padding: 20px; border-radius: 8px; margin-top: 30px;">
+            <h4>Current Status</h4>
+            <p>Available for <strong>Freelance</strong> and <strong>Internships</strong>.</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Rajnish Raze | Built with Passion.</p>
+    </footer>
+
+</body>
+</html>
