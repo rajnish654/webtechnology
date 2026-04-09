@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Data Entry Form</h1>
+            <form id="dataForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                
+                <button type="submit">Add Entry</button>
+            </form>
+            <p id="statusMessage" class="status-message"></p>
+        </div>
+
+        <div class="table-section">
+            <div class="table-header">
+                <h2>Stored Data (Database)</h2>
+                <div class="action-buttons">
+                    <button id="refreshBtn" class="action-btn refresh-btn" onclick="loadData()">
+                        🔄 Refresh Data
+                    </button>
+                    <button id="downloadBtn" class="action-btn download-btn" onclick="downloadCSV()">
+                        📥 Download CSV
+                    </button>
+                    <button id="clearBtn" class="action-btn clear-btn" onclick="clearAllData()">
+                        🗑️ Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div id="tableContainer">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Added On</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+                <p id="emptyMessage" class="empty-message">Loading data from database...</p>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

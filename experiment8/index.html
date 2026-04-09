@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 8 - Submission Proofs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #1a1f3a;
+            --card-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-alt: #8b5cf6;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-light: rgba(148, 163, 184, 0.2);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #1a1a3e 100%);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        p.desc {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .ss-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ss-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        }
+
+        .ss-section:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .ss-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .ss-section h2::before {
+            content: '';
+            width: 4px;
+            height: 28px;
+            background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 2px;
+        }
+
+        .ss-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .ss-placeholder {
+            width: 100%;
+            min-height: 280px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(30, 41, 59, 0.4) 100%);
+            border: 2px solid var(--border-light);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .ss-placeholder:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .ss-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .ss-placeholder:hover::before {
+            opacity: 1;
+        }
+
+        .ss-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            z-index: 2;
+            border-radius: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        .ss-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        .ss-placeholder::after {
+            content: attr(data-label);
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            transition: color 0.3s ease;
+        }
+
+        .ss-placeholder:hover::after {
+            color: #94a3b8;
+        }
+
+        .ss-placeholder:has(img)::after {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p.desc {
+                font-size: 0.95rem;
+            }
+
+            .ss-section {
+                padding: 25px;
+            }
+
+            .ss-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .ss-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .ss-placeholder {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Experiment 8: PHP Fundamentals</h1>
+        <p class="desc">Official submission proofs of all completed PHP basic exercises.</p>
+
+        <!-- Exercise 1 -->
+        <div class="ss-section">
+            <h2>Exercise 1: PHP Environment Verification (1 SS)</h2>
+            <div class="ss-grid">
+                <div class="ss-placeholder" data-label="ex1_ss1.png">
+                    <img src="images/1_ss_ex1.png" alt="Exercise 1 Screenshot">
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="ss-section">
+            <h2>Exercise 2: Built-in Server & Routing (2 SS)</h2>
+            <div class="ss-grid">
+                <div class="ss-placeholder" data-label="ex2_ss1.png">
+                    <img src="images/1_ss_ex2.png" alt="Server Index">
+                </div>
+                <div class="ss-placeholder" data-label="ex2_ss2.png">
+                    <img src="images/2_ss_ex2.png" alt="Server About">
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="ss-section">
+            <h2>Exercise 3: PHP Basics (3 SS)</h2>
+            <div class="ss-grid">
+                <div class="ss-placeholder" data-label="ex3_ss1.png">
+                    <img src="images/1_ss_ex3.png" alt="Profile Logic">
+                </div>
+                <div class="ss-placeholder" data-label="ex3_ss2.png">
+                    <img src="images/2_ss_ex3.png" alt="Constants Demo">
+                </div>
+                <div class="ss-placeholder" data-label="ex3_ss3.png">
+                    <img src="images/3_ss_ex3.png" alt="Data Types Logic">
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Challenge -->
+        <div class="ss-section">
+            <h2>Final Challenge: System Dashboard (1 SS)</h2>
+            <div class="ss-grid">
+                <div class="ss-placeholder" data-label="challenge_ss1.png">
+                    <img src="images/1_ss_challenge.png" alt="System Info Challenge">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Krishu's Coddy Zone | Experiment 8 Documentation
+        </div>
+    </div>
+</body>
+</html>

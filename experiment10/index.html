@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="header">
+                <h1>Scientific Calculator</h1>
+                <div class="mode-toggle">
+                    <button id="basicBtn" class="mode-btn active" onclick="toggleMode('basic')">Basic</button>
+                    <button id="scientificBtn" class="mode-btn" onclick="toggleMode('scientific')">Scientific</button>
+                </div>
+            </div>
+
+            <div class="display-section">
+                <div class="history-display" id="historyDisplay"></div>
+                <input type="text" id="display" class="main-display" placeholder="0" readonly>
+                <div class="memory-indicator">
+                    <span id="memoryStatus">M: 0</span>
+                </div>
+            </div>
+
+            <div class="buttons-section">
+                <!-- Memory Controls -->
+                <div class="memory-controls">
+                    <button onclick="memoryAdd()" title="Memory Add">M+</button>
+                    <button onclick="memorySubtract()" title="Memory Subtract">M-</button>
+                    <button onclick="memoryRecall()" title="Memory Recall">MR</button>
+                    <button onclick="memoryClear()" title="Memory Clear">MC</button>
+                </div>
+
+                <!-- Basic Buttons -->
+                <div class="basic-buttons" id="basicButtons">
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('/')" class="operator">÷</button>
+                    <button onclick="clearDisplay()" class="clear">C</button>
+
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('*')" class="operator">×</button>
+                    <button onclick="deleteLastChar()" class="delete">DEL</button>
+
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('-')" class="operator">−</button>
+                    <button onclick="toggleSign()" class="operator">+/−</button>
+
+                    <button onclick="appendNumber('0')" class="zero">0</button>
+                    <button onclick="appendNumber('.')">.</button>
+                    <button onclick="appendOperator('+')" class="operator">+</button>
+                    <button onclick="calculate()" class="equals">=</button>
+                </div>
+
+                <!-- Scientific Buttons -->
+                <div class="scientific-buttons" id="scientificButtons" style="display: none;">
+                    <!-- Row 1 -->
+                    <button onclick="calculateSin()">sin</button>
+                    <button onclick="calculateCos()">cos</button>
+                    <button onclick="calculateTan()">tan</button>
+                    <button onclick="calculateASin()">asin</button>
+                    <button onclick="calculateACos()">acos</button>
+
+                    <!-- Row 2 -->
+                    <button onclick="calculateATan()">atan</button>
+                    <button onclick="calculateLog()">log</button>
+                    <button onclick="calculateLn()">ln</button>
+                    <button onclick="calculateSqrt()">√</button>
+                    <button onclick="calculateSquare()">x²</button>
+
+                    <!-- Row 3 -->
+                    <button onclick="calculateCube()">x³</button>
+                    <button onclick="calculatePower()">xʸ</button>
+                    <button onclick="calculateFactorial()">n!</button>
+                    <button onclick="calculateReciprocal()">1/x</button>
+                    <button onclick="toggleDegRad()" id="degRadBtn">DEG</button>
+
+                    <!-- Row 4 -->
+                    <button onclick="calculatePercent()">%</button>
+                    <button onclick="appendPi()" class="constant">π</button>
+                    <button onclick="appendE()" class="constant">e</button>
+                    <button onclick="appendNumber('(')" class="parentheses">(</button>
+                    <button onclick="appendNumber(')')" class="parentheses">)</button>
+
+                    <!-- Row 5 -->
+                    <button onclick="calculateExp()">eˣ</button>
+                    <button onclick="appendOperator('/')" class="operator">÷</button>
+                    <button onclick="appendOperator('*')" class="operator">×</button>
+                    <button onclick="appendOperator('-')" class="operator">−</button>
+                    <button onclick="appendOperator('+')" class="operator">+</button>
+
+                    <!-- Row 6 -->
+                    <button onclick="deleteLastChar()" class="delete">DEL</button>
+                    <button onclick="clearDisplay()" class="clear">C</button>
+                    <button onclick="appendNumber('.')" class="decimal">.</button>
+                    <button onclick="calculateMod()">mod</button>
+                    <button onclick="calculate()" class="equals">=</button>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3>History</h3>
+                <div class="history-list" id="historyList"></div>
+                <button onclick="clearHistory()" class="clear-history">Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
